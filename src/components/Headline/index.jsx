@@ -1,12 +1,24 @@
 import Image from "next/image";
 import styles from "./Headline.module.css";
 
-export  function Headline() {
+const PAGES = [
+  {
+    title: "home",
+    href: "/",
+  },
+  {
+    title: "profile",
+    href: "/profile",
+  },
+];
+
+export function Headline() {
   return (
     <div>
       <div className={styles.navigation}>
-        <span>test</span>
-        <span>tttest</span>
+        {PAGES.map((page) => {
+          return <span>{page.title}</span>;
+        })}
       </div>
     </div>
   );
