@@ -7,11 +7,11 @@ import { Headline } from "@/components/Headline";
 
 export default function Home() {
   return (
-    <div>
-      <Headline></Headline>
+
       <main className={styles.main}>
+      <Headline></Headline>
         プロフィールです
       </main>
-    </div>
+
   );
 }

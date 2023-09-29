@@ -7,7 +7,6 @@ import { Headline } from "@/components/Headline";
 
 export default function Home() {
   return (
-    <div>
       <main className={styles.main}>
         <Headline></Headline>
         <div className={styles.description}>
@@ -101,6 +100,5 @@ export default function Home() {
           </a>
         </div>
       </main>
-    </div>
   );
 }
