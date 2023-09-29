@@ -1,7 +1,7 @@
 import Image from "next/image";
-import styles from "./Headerline.module.css";
+import styles from "./Headline.module.css";
 
-export default function Header() {
+export default function Headline() {
   return (
     <div>
       <div className={styles.navigation}>

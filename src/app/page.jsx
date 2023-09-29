@@ -1,15 +1,15 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+import Image from "next/image";
+import styles from "./page.module.css";
 
-import {Headerline} from "@/components/Headerline";
+import { Headline } from "@/components/Headline";
 
 export default function Home() {
   return (
     <main className={styles.main}>
-      <Headerline></Headerline>
+      <Headline></Headline>
       <div className={styles.description}>
-      <h1>hello world</h1>
-      <h1>hello world</h1>
+        <h1>hello world</h1>
+        <h1>hello world</h1>
         <p>
           Get started by editing&nbsp;
           <code className={styles.code}>src/app/page.js</code>
@@ -20,7 +20,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            By{' '}
+            By{" "}
             <Image
               src="/vercel.svg"
               alt="Vercel Logo"
@@ -96,5 +96,5 @@ export default function Home() {
         </a>
       </div>
     </main>
-  )
+  );
 }
