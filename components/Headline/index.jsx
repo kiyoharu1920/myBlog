@@ -19,7 +19,7 @@ export function Headline() {
     <div>
       <div className={styles.navigation}>
         {PAGES.map((page) => {
-          return <Link>{page.title}</Link>;
+          return <Link href={page.href}>{page.title}</Link>;
         })}
       </div>
     </div>
