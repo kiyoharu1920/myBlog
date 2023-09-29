@@ -1,9 +1,12 @@
 import Image from 'next/image'
 import styles from './page.module.css'
 
+import {Headerline} from "@/components/Headerline";
+
 export default function Home() {
   return (
     <main className={styles.main}>
+      <Headerline></Headerline>
       <div className={styles.description}>
       <h1>hello world</h1>
       <h1>hello world</h1>
