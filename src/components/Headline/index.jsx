@@ -1,6 +1,8 @@
 import Image from "next/image";
 import styles from "./Headline.module.css";
 
+
+
 const PAGES = [
   {
     title: "home",
@@ -14,10 +16,11 @@ const PAGES = [
 
 export function Headline() {
   return (
-    <div>
+
+    <div>    
       <div className={styles.navigation}>
         {PAGES.map((page) => {
-          return <span>{page.title}</span>;
+          return <Link>{page.title}</Link>;
         })}
       </div>
     </div>

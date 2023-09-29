@@ -8,7 +8,7 @@ import { Headline } from "@/components/Headline";
 export default function Home() {
   return (
     <main className={styles.main}>
-      <Headline page="home"></Headline>
+      <Headline></Headline>
       <div className={styles.description}>
         <h1>hello world</h1>
         <h1>hello world</h1>
