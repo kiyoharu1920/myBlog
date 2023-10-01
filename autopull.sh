@@ -1,3 +1,3 @@
 #!/bin/bash
 
-watch -n 5 git pull
+watch -n 2 git pull
