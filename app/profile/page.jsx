@@ -3,15 +3,19 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 
+import { Header } from "@/components/Header";
 import { Headline } from "@/components/Headline";
+import { Main } from "@/components/Main";
+import { Footer } from "@/components/Footer";
 
-export default function Home() {
+
+export default function Profile() {
   return (
-
-      <main className={styles.main}>
+    <div>
+      <Header></Header>
       <Headline></Headline>
-        プロフィールです
-      </main>
-
+      <main>プロフィールです</main>
+      <Footer></Footer>
+    </div>
   );
 }

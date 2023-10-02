@@ -3,19 +3,14 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 
-import { Header } from "@/components/Header";
 import { Headline } from "@/components/Headline";
-import { Main } from "@/components/Main";
 import { Footer } from "@/components/Footer";
 
-export default function Home() {
+export default function Article() {
   return (
     <div>
-      <Header></Header>
       <Headline></Headline>
-
-      <Main></Main>
-
+      こんにちは
       <Footer></Footer>
     </div>
   );
