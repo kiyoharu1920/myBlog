@@ -1,6 +1,3 @@
-import Image from "next/image";
-import styles from "./page.module.css";
-
 import Link from "next/link";
 
 const PAGES = [
@@ -12,12 +9,16 @@ const PAGES = [
     title: "profile",
     href: "/profile",
   },
+  {
+    title: "articles",
+    href: "/articles/1",
+  },
 ];
 
 export function Headline() {
   return (
     <div>
-      <div className={styles.navigation}>
+      <div>
         {PAGES.map((page) => {
           return (
             <Link href={page.href} key={page.title}>
