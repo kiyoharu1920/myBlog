@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <div>
       <main>
-        ホーム画面です
+        <Counter></Counter>
       </main>
     </div>
   );

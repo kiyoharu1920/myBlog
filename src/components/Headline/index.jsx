@@ -7,12 +7,16 @@ const PAGES = [
     href: "/",
   },
   {
-    title: "Profile",
-    href: "/profile",
+    title: "Articles",
+    href: "/articles",
   },
   {
-    title: "Articles",
-    href: "/articles/2",
+    title: "Tools",
+    href: "/tools",
+  },
+  {
+    title: "Profile",
+    href: "/profile",
   },
 ];
 
@@ -22,8 +26,8 @@ export function Headline() {
       <div className={styles.headline}>
         {PAGES.map((page) => {
           return (
-            <span className={styles.anchor}>
-              <Link href={page.href} key={page.title}>
+            <span className={styles.anchor} key={page.title}>
+              <Link href={page.href} >
                 {page.title}
               </Link>
             </span>

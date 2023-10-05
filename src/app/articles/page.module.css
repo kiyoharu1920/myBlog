@@ -1,0 +1,16 @@
+.articles {
+  background-color: #ffffef;
+  margin: 1%;
+  padding: 0 1% 1% 1%;
+  border: solid 1px;
+  border-radius: 5px;
+  text-align: right;
+  filter: grayscale(0);
+  transition: all 0.3s ease;
+  filter: brightness(1);
+}
+
+.articles:hover {
+  filter: brightness(0.8);
+  scale: 0.99;
+}
