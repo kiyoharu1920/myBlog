@@ -3,18 +3,18 @@ import styles from "./page.module.css";
 
 import articleObjects from "@/api/articleObjectsForImport";
 
-async function getItems() {
+/* async function getItems() {
   const res = await fetch("http://127.0.0.1:3000/api/articleObjectsForFetch");
   return res.json();
-}
+} */
 
 export default async function Articles(props) {
-  const articlesFetch = await getItems();
+  /*   const articlesFetch = await getItems(); */
 
   return (
     <div>
       <main>
-        <span>Fetchで取得</span>
+        {/*         <span>Fetchで取得</span>
         {articlesFetch.map((article, i) => {
           return (
             <div key={i + article.title} className={styles.articles}>
@@ -26,7 +26,7 @@ export default async function Articles(props) {
               </Link>
             </div>
           );
-        })}
+        })} */}
 
         <span>Importで取得</span>
         {articleObjects.map((article, i) => {
