@@ -14,7 +14,7 @@ export default async function Articles(props) {
   return (
     <div>
       <main>
-        Fetchで取得
+        <span>Fetchで取得</span>
         {articlesFetch.map((article, i) => {
           return (
             <div key={i + article.title} className={styles.articles}>
@@ -28,7 +28,7 @@ export default async function Articles(props) {
           );
         })}
 
-        Importで取得
+        <span>Importで取得</span>
         {articleObjects.map((article, i) => {
           return (
             <div key={i + article.title} className={styles.articles}>
