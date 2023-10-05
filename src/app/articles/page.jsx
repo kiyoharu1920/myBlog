@@ -4,7 +4,7 @@ import styles from "./page.module.css";
 import articleObjects from "@/api/articleObjectsForImport";
 
 async function getItems() {
-  const res = await fetch("http://localhost:3000/api/articleObjectsForFetch");
+  const res = await fetch("http://127.0.0.1:3000/api/articleObjectsForFetch");
   return res.json();
 }
 
