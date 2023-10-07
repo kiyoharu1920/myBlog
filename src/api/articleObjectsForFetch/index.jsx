@@ -22,7 +22,7 @@ const articleObjects = [
  * @param {NextApiRequest} req
  * @param {NextApiResponse} res
  */
-export default async function (req, res) {
+export default async function articleObjectsForFetch(req, res) {
   await new Promise((resolve) => setTimeout(resolve, 1000));
 
   res.status(200).json(articleObjects);

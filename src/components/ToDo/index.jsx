@@ -4,14 +4,14 @@ import { useCallback, useEffect, useState } from "react";
 
 import styles from "./page.module.css";
 
-function todo() {
+function useToDo() {
   /* input */
   const [text, setText] = useState("");
   const handleChange = useCallback(
     function (e) {
       setText(e.target.value);
     },
-    [text]
+    []
   );
 
   /* button */
@@ -77,7 +77,7 @@ export function ToDo() {
     handleClickCheck,
     handleClickAllDelete,
     handleClickDelete,
-  } = todo();
+  } = useToDo();
 
   return (
     <div className={styles.container}>
