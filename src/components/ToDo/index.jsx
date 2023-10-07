@@ -7,24 +7,33 @@ import styles from "./page.module.css";
 function useToDo() {
   /* input */
   const [text, setText] = useState("");
-  const handleChange = useCallback(
-    function (e) {
-      setText(e.target.value);
-    },
-    []
-  );
+  const handleChange = useCallback(function (e) {
+    setText(e.target.value);
+  }, []);
 
   /* button */
   const localStrageKey = "todoText";
   const [todoList, setTodoList] = useState([]);
-  const handleClickAdd = useCallback(() => {
+
+  const addTodoList = function () {
     if (todoList.includes(text) || text === "") {
       return;
     }
     setTodoList((list) => [...list, text]); /* listに追加 */
     setText((_) => ""); /* inputのvalueを削除 */
     localStorage.setItem(localStrageKey, JSON.stringify(todoList));
-  }, [todoList, text]);
+  };
+
+  const handleClickAdd = useCallback(addTodoList, [todoList, text]);
+  const handleKeyDown = useCallback(
+    (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault(); /* デフォルトのフォーム送信を防止 */
+        addTodoList();
+      }
+    },
+    [todoList, text]
+  );
 
   const handleClickAllDelete = useCallback(() => {
     setTodoList(() => []);
@@ -61,6 +70,7 @@ function useToDo() {
     text,
     handleChange,
     todoList,
+    handleKeyDown,
     handleClickAdd,
     handleClickCheck,
     handleClickAllDelete,
@@ -73,6 +83,7 @@ export function ToDo() {
     text,
     handleChange,
     todoList,
+    handleKeyDown,
     handleClickAdd,
     handleClickCheck,
     handleClickAllDelete,
@@ -83,7 +94,12 @@ export function ToDo() {
     <div className={styles.container}>
       <div className={styles.title}>ToDoリスト</div>
       <div className={styles.forms}>
-        <input type="text" onChange={handleChange} value={text} />
+        <input
+          type="text"
+          onChange={handleChange}
+          onKeyDown={handleKeyDown}
+          value={text}
+        />
         <button onClick={handleClickAdd}>追加</button>
         <button onClick={handleClickAllDelete}>すべて削除</button>
       </div>
