@@ -1,4 +1,6 @@
 .container {
-    background-color: #fffff0;
-    text-align: center;
+  width: 80%;
+  text-align: center;
+  margin: 1% auto;
+  background-color: blanchedalmond;
 }

@@ -1,4 +1,4 @@
-"use client";
+import styles from "./page.module.css";
 
 import { Counter } from "@/components/Counter";
 import { ToDo } from "@/components/ToDo";

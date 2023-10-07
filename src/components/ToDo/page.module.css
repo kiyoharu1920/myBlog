@@ -1,3 +1,35 @@
+.container {
+  background-color: bisque;
+  width: 80%;
+  margin: 1% auto;
+  font-size: x-large;
+}
+.title {
+  text-align: center;
+}
+.forms {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+.table {
+  margin: 0 auto;
+}
+
+.todolist {
+  width: 80%;
+  margin: 0 auto;
+}
+
 .pointNone {
   list-style: none;
+}
+
+.crossButton {
+  margin-left: 5%;
+  border: 0;
+  border-radius: 5px;
+  color: white;
+  background-color: red;
+  opacity: 50%;
 }
