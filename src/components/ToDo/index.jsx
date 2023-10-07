@@ -15,21 +15,25 @@ function useToDo() {
   const localStrageKey = "todoText";
   const [todoList, setTodoList] = useState([]);
 
-  const addTodoList = function () {
+  const handleClickAdd = useCallback(() => {
     if (todoList.includes(text) || text === "") {
       return;
     }
     setTodoList((list) => [...list, text]); /* listに追加 */
     setText((_) => ""); /* inputのvalueを削除 */
     localStorage.setItem(localStrageKey, JSON.stringify(todoList));
-  };
-
-  const handleClickAdd = useCallback(addTodoList, [todoList, text]);
+  }, [todoList, text]);
   const handleKeyDown = useCallback(
     (e) => {
       if (e.key === "Enter") {
         e.preventDefault(); /* デフォルトのフォーム送信を防止 */
-        addTodoList();
+
+        if (todoList.includes(text) || text === "") {
+          return;
+        }
+        setTodoList((list) => [...list, text]); /* listに追加 */
+        setText((_) => ""); /* inputのvalueを削除 */
+        localStorage.setItem(localStrageKey, JSON.stringify(todoList));
       }
     },
     [todoList, text]
