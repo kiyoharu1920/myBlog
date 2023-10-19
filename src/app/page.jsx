@@ -1,10 +1,10 @@
-import { Counter } from "@/components/Counter";
+import styles from "./page.module.css";
 
 export default function Home() {
   return (
     <div>
       <main>
-        ホーム画面です
+        <div className={styles.hello}>Wellcome!</div>
       </main>
     </div>
   );

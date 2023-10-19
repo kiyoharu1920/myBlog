@@ -1,0 +1,23 @@
+.hello {
+  text-align: center;
+  padding: 10%;
+  font-size: 200%;
+  color: #777777;
+
+  transition: 1s;
+  opacity: 0;
+  transform: translateY(20px);
+  display: block;
+
+  animation: catch_anime 1s forwards 0.3s;
+}
+
+@keyframes catch_anime {
+  0% {
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
