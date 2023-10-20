@@ -5,7 +5,7 @@ export function Footer() {
     <div className={styles.right}>
       <div>
         <div>Contact</div>
-        <div>mail:kiyoharu1920@gmail.com</div>
+        <div>mail:xxxxxyyyyy@xxxxmail.com</div>
       </div>
     </div>
   );
