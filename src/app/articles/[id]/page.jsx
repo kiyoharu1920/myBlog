@@ -5,11 +5,9 @@ export default function ArticleDetail(props) {
   return (
     <div>
       <main>
-        <div>
           <h1>{articles[id].title}</h1>
-        </div>
         <div>
-          <div>{articles[id].bodyText}</div>
+          <pre>{articles[id].bodyText}</pre>
         </div>
       </main>
     </div>
