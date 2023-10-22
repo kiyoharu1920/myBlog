@@ -13,6 +13,9 @@ const PAGES = [
   {
     title: "Tools",
     href: "/tools",
+  },  {
+    title: "Study",
+    href: "/study",
   },
   {
     title: "Profile",
