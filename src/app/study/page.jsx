@@ -25,7 +25,7 @@ export default function Study() {
 
         <div>
           useEffect
-          <Study_useMemo></Study_useMemo>
+          <Study_useEffect></Study_useEffect>
         </div>
       </main>
     </div>
