@@ -3,10 +3,16 @@
 import { useCallback } from "react";
 
 export function Study_useCallback() {
-  useCallback
+  const func = useCallback(() => {
+    return (
+      <div>
+        <div>重い関数の処理結果などを保存するときに便利</div>
+      </div>
+    );
+  }, []);
   return (
     <div>
-      <div>Study_useCallback</div>
+      {func()}
     </div>
   );
 }

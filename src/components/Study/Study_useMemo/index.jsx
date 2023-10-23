@@ -3,10 +3,13 @@
 import { useMemo } from "react";
 
 export function Study_useMemo() {
-  useMemo;
+  const result = useMemo(() => {
+    return "処理が重い関数などを保存するときに便利";
+  }, []);
+
   return (
     <div>
-      <div>Study_useMemo</div>
+      <div>{result}</div>
     </div>
   );
 }

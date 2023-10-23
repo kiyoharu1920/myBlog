@@ -3,20 +3,20 @@
 import styles from "./page.module.css";
 import { useCallback, useState } from "react";
 
-function counterSet() {
+function useCounterSet() {
   const [count, setCount] = useState(0);
   const handleClickAdd = useCallback(
     () => setCount((prev) => prev + 1),
-    [count]
+    []
   );
 
-  const handleClickClear = useCallback(() => setCount(() => 0), [count]);
+  const handleClickClear = useCallback(() => setCount(() => 0), []);
 
   return { count, handleClickAdd, handleClickClear };
 }
 
 export function Counter() {
-  const { count, handleClickAdd, handleClickClear } = counterSet();
+  const { count, handleClickAdd, handleClickClear } = useCounterSet();
 
   return (
     <div className={styles.container}>

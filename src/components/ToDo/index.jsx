@@ -38,7 +38,7 @@ function useToDo() {
         handleClickAdd();
       }
     },
-    [todoList, text]
+    [handleClickAdd]
   );
 
   const handleClickAllDelete = useCallback(() => {
