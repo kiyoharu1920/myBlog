@@ -1,0 +1,9 @@
+.mailContainer{
+  display: flex;
+  flex-direction: column;
+  margin: 0 10%;
+}
+
+.mailContainer > button {
+  margin-left:80%;
+}
