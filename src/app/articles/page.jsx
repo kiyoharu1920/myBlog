@@ -1,7 +1,7 @@
 import Link from "next/link";
 import styles from "./page.module.css";
 
-import articleObjects from "@/api/articleObjectsForImport";
+import articleObjects from "@/pages/api/articleObjectsForImport";
 
 
 export default async function Articles(props) {

@@ -1,7 +1,11 @@
 "use client";
 
+import "bootstrap/dist/css/bootstrap.min.css";
 import styles from "@/components/SendEMail/page.module.css";
 import { useRef } from "react";
+
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 
 export function SendEmail() {
   const nameRef = useRef(null);
@@ -19,7 +23,7 @@ export function SendEmail() {
       email: emailRef.current.value,
       message: messageRef.current.value,
     };
-    
+
     await fetch("api/nodemailer", {
       method: "POST",
       headers: {
@@ -30,7 +34,7 @@ export function SendEmail() {
     }).then((res) => {
       if (res.status === 200) {
         console.log("200 OK");
-      }else{
+      } else {
         console.log("200 NG");
       }
     });
@@ -38,7 +42,26 @@ export function SendEmail() {
 
   return (
     <div>
-      <form onSubmit={(e)=>handleSubmit(e)} className={styles.mailContainer}>
+      <Form onSubmit={(e) => handleSubmit(e)}>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label>返信先メールアドレス</Form.Label>
+          <Form.Control type="email" placeholder="Enter email" ref={emailRef} />
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formBasicName">
+          <Form.Label>名前（ユーザーネーム）</Form.Label>
+          <Form.Control type="text" placeholder="佐藤 太郎" ref={nameRef} />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+          <Form.Label>本文</Form.Label>
+          <Form.Control as="textarea" rows={3} ref={messageRef} />
+        </Form.Group>
+        <Button variant="primary" type="submit">
+          送信
+        </Button>
+      </Form>
+
+      {/*       <form onSubmit={(e)=>handleSubmit(e)} className={styles.mailContainer}>
         <div>メール送信</div>
         <span>返信先メールアドレス</span>
         <input id="email" ref={emailRef} type="email" />
@@ -54,6 +77,8 @@ export function SendEmail() {
         ></textarea>
         <button type="submit">送信</button>
       </form>
+
+       */}
     </div>
   );
 }

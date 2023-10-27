@@ -1,4 +1,4 @@
-import articles from "@/api/articleObjectsForImport";
+import articles from "@/pages/api/articleObjectsForImport";
 
 export default function ArticleDetail(props) {
   const id = props.params.id;
