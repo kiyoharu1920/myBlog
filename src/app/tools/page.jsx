@@ -12,7 +12,10 @@ export default function Tools() {
         <Counter></Counter>
         <ToDo></ToDo>
         <SendEmail />
+        <div className={styles.link}>
+
         <Link href={"./tools/photos"}>photos</Link>
+        </div>
       </main>
     </div>
   );

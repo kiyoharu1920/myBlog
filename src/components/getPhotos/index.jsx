@@ -12,19 +12,24 @@ export async function GetPhotos() {
 
   return (
     <div>
-      {photos.map((photo, index) => {
-        //if (index > 10) return;
-        return (
-          <span key={photo.albumId + "_" + photo.id}>
-            <Image
-              src={photo.thumbnailUrl}
-              width={150}
-              height={150}
-              alt={photo.title}
-            ></Image>
-          </span>
-        );
-      })}
+      <div>from <a href="https://jsonplaceholder.typicode.com/" target="_blank">JSONPlaceholder</a></div>
+      <div>
+        {photos.map((photo, index) => {
+          if (index > 100) return;
+          return (
+            <span key={photo.albumId + "_" + photo.id}>
+              <Image
+                src={photo.thumbnailUrl}
+                width={100}
+                height={100}
+                alt={photo.title}
+                quality={80}
+                priority={true}
+              ></Image>
+            </span>
+          );
+        })}
+      </div>
     </div>
   );
 }
