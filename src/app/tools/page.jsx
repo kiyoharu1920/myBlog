@@ -13,8 +13,10 @@ export default function Tools() {
         <ToDo></ToDo>
         <SendEmail />
         <div className={styles.link}>
-
-        <Link href={"./tools/photos"}>photos</Link>
+          <Link href={"./tools/photos"}>Photos</Link>
+        </div>
+        <div className={styles.link}>
+          <Link href={"./tools/googlemaps"}>Google Map</Link>
         </div>
       </main>
     </div>
