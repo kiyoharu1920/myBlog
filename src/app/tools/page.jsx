@@ -18,6 +18,9 @@ export default function Tools() {
         <div className={styles.link}>
           <Link href={"./tools/googlemaps"}>Google Map</Link>
         </div>
+        <div className={styles.link}>
+          <Link href={"./tools/dbtest"}>postgreSQL てすと</Link>
+        </div>
       </main>
     </div>
   );
