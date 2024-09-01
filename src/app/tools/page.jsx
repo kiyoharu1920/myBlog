@@ -11,7 +11,7 @@ export default function Tools() {
       <main>
         <Counter></Counter>
         <ToDo></ToDo>
-        <SendEmail />
+       {/*  <SendEmail /> */}
         <div className={styles.link}>
           <Link href={"./tools/photos"}>Photos</Link>
         </div>
