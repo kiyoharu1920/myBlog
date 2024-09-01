@@ -24,7 +24,7 @@ export function SendEmail() {
       message: messageRef.current.value,
     };
 
-    await fetch("api/nodemailer", {
+    /* await fetch("api/nodemailer", {
       method: "POST",
       headers: {
         Accept: "application/json, text/plain",
@@ -37,7 +37,7 @@ export function SendEmail() {
       } else {
         console.log("200 NG");
       }
-    });
+    }); */
   };
 
   return (
