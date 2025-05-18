@@ -11,11 +11,7 @@ export default function Tools() {
       <main>
         <Counter></Counter>
         <ToDo></ToDo>
-<<<<<<< HEAD
         <SendEmail />
-=======
-       <SendEmail />
->>>>>>> eea69ccc0048e3c0188e5608ab746e6927462bee
         <div className={styles.link}>
           <Link href={"./tools/photos"}>Photos</Link>
         </div>
