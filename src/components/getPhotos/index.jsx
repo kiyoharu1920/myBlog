@@ -6,7 +6,7 @@ const API_URL = "https://jsonplaceholder.typicode.com/";
 export async function GetPhotos() {
   const res = await fetch(API_URL + "/photos");
   const json = await res.json();
-  const /** @type {Promise} */ photos = await json.json();
+  const /** @type {Promise} */ photos = json
 
   console.log(photos[0]);
 
