@@ -1,11 +1,11 @@
 "use client";
 
 import Image from "next/image";
-
 const API_URL = "https://jsonplaceholder.typicode.com/";
 
 export async function GetPhotos() {
-  const json = await fetch(API_URL + "/photos");
+  const res = await fetch(API_URL + "/photos");
+  const json = await res.json();
   const /** @type {Promise} */ photos = await json.json();
 
   console.log(photos[0]);
