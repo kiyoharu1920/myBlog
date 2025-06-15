@@ -1,7 +1,6 @@
 import { MongoClient, ServerApiVersion } from "mongodb";
 
-const uri =
-  "mongodb+srv://kiyoharu1920:19205184@cluster0.57idiw5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const uri = process.env.MONGODB_URL;
 
 async function getUsers() {
   const client = new MongoClient(uri, {
