@@ -1,18 +1,22 @@
-"use client";
-
 import Image from "next/image";
 const API_URL = "https://jsonplaceholder.typicode.com/";
 
 export async function GetPhotos() {
   const res = await fetch(API_URL + "/photos");
+  /** @type {Promise} */
   const json = await res.json();
-  const /** @type {Promise} */ photos = json
+  const photos = json;
 
   console.log(photos[0]);
 
   return (
     <div>
-      <div>from <a href="https://jsonplaceholder.typicode.com/" target="_blank">JSONPlaceholder</a></div>
+      <div>
+        from{" "}
+        <a href="https://jsonplaceholder.typicode.com/" target="_blank">
+          JSONPlaceholder
+        </a>
+      </div>
       <div>
         {photos.map((photo, index) => {
           if (index > 100) return;

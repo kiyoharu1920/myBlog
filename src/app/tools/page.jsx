@@ -15,11 +15,11 @@ export default function Tools() {
         <div className={styles.link}>
           <Link href={"./tools/photos"}>Photos</Link>
         </div>
-        <div className={styles.link}>
+        {/* <div className={styles.link}>
           <Link href={"./tools/googlemaps"}>Google Map</Link>
-        </div>
+        </div> */}
         <div className={styles.link}>
-          <Link href={"./tools/dbtest"}>postgreSQL てすと</Link>
+          <Link href={"./tools/dbtest"}>MongoDB てすと</Link>
         </div>
       </main>
     </div>

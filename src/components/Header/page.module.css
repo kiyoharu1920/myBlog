@@ -1,0 +1,13 @@
+.image {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  display: block;
+}
+
+.headerImage {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
