@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
-export default function testJSONplaceholder(
+export default function testAPI(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
