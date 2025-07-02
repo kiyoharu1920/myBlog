@@ -96,34 +96,35 @@ export default function MongoDB() {
   return (
     <div>
       <h1 className="text-2xl font-bold mb-6 text-center">MongoDB テスト</h1>
-      <div className="flex flex-col sm:flex-row gap-2 mb-6 items-center justify-center">
+      <div className="flex flex-col gap-2 mb-6 items-center justify-center max-w-xs mx-auto w-full">
         <input
           type="text"
           placeholder="名前"
           value={userName}
-          className="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 transition w-full sm:w-40"
+          className="border border-gray-300 rounded px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400 transition w-32"
           onChange={userNameInputHandler}
         />
         <input
           type="text"
           placeholder="コメント"
           value={userComment}
-          className="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 transition w-full sm:w-64"
+          className="border border-gray-300 rounded px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400 transition w-48"
           onChange={userCommentInputHandler}
         />
         <input
           type="submit"
           disabled={isSubmitting}
           value={isSubmitting ? "投稿中..." : "投稿"}
-          className="bg-blue-500 text-black rounded px-4 py-2 font-semibold hover:bg-blue-600 transition cursor-pointer w-full sm:w-auto"
+          className="bg-blue-500 text-black rounded px-2 py-1 font-semibold text-sm hover:bg-blue-600 transition cursor-pointer w-20"
           onClick={clickPostHandler}
         />
       </div>
+
       <table
         border={1}
         cellPadding="8"
         style={{ borderCollapse: "collapse" }}
-        className="w-full text-center border border-gray-300"
+        className="w-auto mx-auto text-center border border-gray-300"
       >
         <thead>
           <tr>
