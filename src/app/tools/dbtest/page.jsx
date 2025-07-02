@@ -3,7 +3,9 @@ import MongoDB from "@/components/MongoDB";
 export default async function MongoDBPage() {
   return (
     <div>
-      <MongoDB></MongoDB>
+      <main>
+        <MongoDB></MongoDB>
+      </main>
     </div>
   );
 }
