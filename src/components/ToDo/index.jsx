@@ -93,7 +93,7 @@ function useToDo() {
    */
   const handleClickCheck = useCallback(function (e) {
     const /** @type {number} */ index = e.target.name;
-    const /** @type {HTMLElement */ element = e.target;
+    const /** @type {HTMLElement} */ element = e.target;
     const /** @type {Boolean} */ checked = e.target.checked;
 
     const span = document.querySelector(`span[name="${index}"]`);
