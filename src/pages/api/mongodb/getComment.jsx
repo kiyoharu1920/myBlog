@@ -1,6 +1,6 @@
 // ★ package.json に "type": "module" を設定しておくと import/export が使えます
 import { MongoClient, ServerApiVersion } from "mongodb";
-import { NextApiRequest, NextApiResponse } from "next";
+
 
 export default async function testAPI(req, res) {
   const uri = process.env.MONGODB_URL;

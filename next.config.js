@@ -1,9 +1,20 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+export default {
   pageExtensions: ["tsx", "jsx"],
   images: {
-    domains: ["jsonplaceholder.typicode.com", "via.placeholder.com"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "jsonplaceholder.typicode.com",
+        port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "via.placeholder.com",
+        port: "",
+        pathname: "/**",
+      },
+    ],
   },
 };
-
-module.exports = nextConfig;
