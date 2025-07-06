@@ -7,23 +7,34 @@ import { useRef } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
+/**
+ * メール送信フォームコンポーネント
+ * Bootstrapを使用したメール送信機能
+ */
 export function SendEmail() {
+  // フォーム要素への参照を作成
   const nameRef = useRef(null);
   const emailRef = useRef(null);
   const messageRef = useRef(null);
 
+  /**
+   * フォーム送信時の処理
+   * 入力データをAPIに送信してメールを送信
+   */
   const handleSubmit = async (
     /** @type {React.FormEvent<HTMLFormElement>} */ e
   ) => {
     e.preventDefault();
     console.log(nameRef.current?.value);
 
+    // フォームデータをオブジェクトにまとめる
     const data = {
       name: nameRef.current.value,
       email: emailRef.current.value,
       message: messageRef.current.value,
     };
 
+    // メール送信APIを呼び出し
     await fetch("api/nodemailer", {
       method: "POST",
       headers: {
@@ -42,25 +53,33 @@ export function SendEmail() {
 
   return (
     <div>
+      {/* Bootstrapフォーム */}
       <Form onSubmit={(e) => handleSubmit(e)}>
+        {/* メールアドレス入力欄 */}
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>返信先メールアドレス</Form.Label>
           <Form.Control type="email" placeholder="Enter email" ref={emailRef} />
         </Form.Group>
 
+        {/* 名前入力欄 */}
         <Form.Group className="mb-3" controlId="formBasicName">
           <Form.Label>名前（ユーザーネーム）</Form.Label>
           <Form.Control type="text" placeholder="佐藤 太郎" ref={nameRef} />
         </Form.Group>
+        
+        {/* メッセージ入力欄 */}
         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
           <Form.Label>本文</Form.Label>
           <Form.Control as="textarea" rows={3} ref={messageRef} />
         </Form.Group>
+        
+        {/* 送信ボタン */}
         <Button variant="primary" type="submit">
           送信
         </Button>
       </Form>
 
+      {/* コメントアウトされたオリジナルフォーム（参考用） */}
       {/*       <form onSubmit={(e)=>handleSubmit(e)} className={styles.mailContainer}>
         <div>メール送信</div>
         <span>返信先メールアドレス</span>

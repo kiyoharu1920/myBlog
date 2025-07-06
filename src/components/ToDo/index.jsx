@@ -4,17 +4,25 @@ import { useCallback, useEffect, useState } from "react";
 
 import styles from "./page.module.css";
 
+/**
+ * ToDoリスト機能を提供するカスタムフック
+ * ローカルストレージを使用してToDoデータを永続化
+ */
 function useToDo() {
-  /* input */
+  /* 入力フィールドの状態管理 */
   const [text, setText] = useState("");
   const handleChange = useCallback(function (e) {
     setText(e.target.value);
   }, []);
 
-  /* button */
+  /* ToDoリストの状態管理 */
   const localStrageKey = "todoText"; /* localStrageに使うkey */
   const [todoList, setTodoList] = useState([]);
 
+  /**
+   * ToDoアイテムを追加する処理
+   * 重複チェックとローカルストレージへの保存を行う
+   */
   const handleClickAdd = useCallback(() => {
     /* フォームに入力された文字がすでにリストにあるか、未入力の場合は処理しない */
     if (todoList.includes(text) || text === "") {
@@ -30,6 +38,10 @@ function useToDo() {
     setText((_) => ""); /* inputのvalueを削除 */
   }, [todoList, text]);
 
+  /**
+   * Enterキー押下時の処理
+   * フォーム送信を防止してToDo追加を実行
+   */
   const handleKeyDown = useCallback(
     (e) => {
       if (e.key === "Enter") {
@@ -41,15 +53,27 @@ function useToDo() {
     [handleClickAdd]
   );
 
+  /**
+   * すべてのToDoを削除する処理
+   * ローカルストレージからも削除
+   */
   const handleClickAllDelete = useCallback(() => {
     setTodoList(() => []);
     localStorage.removeItem(localStrageKey);
   }, []);
+
+  /**
+   * コンポーネントマウント時にローカルストレージからToDoリストを復元
+   */
   useEffect(() => {
     const lsTodoText = localStorage.getItem(localStrageKey);
     setTodoList(() => JSON.parse(lsTodoText) || []);
   }, []);
 
+  /**
+   * 特定のToDoアイテムを削除する処理
+   * @param {Event} e - クリックイベント
+   */
   const handleClickDelete = useCallback(function (/** @type {Event} */ e) {
     const index = e.target.name;
 
@@ -62,6 +86,11 @@ function useToDo() {
     });
   }, []);
 
+  /**
+   * ToDoアイテムのチェック状態を切り替える処理
+   * チェック時は取り消し線を表示
+   * @param {Event} e - チェックボックスクリックイベント
+   */
   const handleClickCheck = useCallback(function (e) {
     const /** @type {number} */ index = e.target.name;
     const /** @type {HTMLElement */ element = e.target;
@@ -85,6 +114,10 @@ function useToDo() {
   };
 }
 
+/**
+ * ToDoリストコンポーネント
+ * ローカルストレージを使用したToDo管理機能
+ */
 export function ToDo() {
   const {
     text,
@@ -99,7 +132,10 @@ export function ToDo() {
 
   return (
     <div className={styles.container}>
+      {/* ToDoリストのタイトル */}
       <div className={styles.title}>ToDoリスト</div>
+      
+      {/* 入力フォームと操作ボタン */}
       <div className={styles.forms}>
         <input
           type="text"
@@ -110,12 +146,15 @@ export function ToDo() {
         <button onClick={handleClickAdd}>追加</button>
         <button onClick={handleClickAllDelete}>すべて削除</button>
       </div>
+      
+      {/* ToDoリストの表示テーブル */}
       <div className={styles.todolist}>
         <table className={styles.table}>
           <tbody>
             {todoList.map((todoText, index) => {
               return (
                 <tr key={todoText} className={styles.pointNone}>
+                  {/* チェックボックス */}
                   <td>
                     <input
                       type="checkbox"
@@ -123,11 +162,13 @@ export function ToDo() {
                       onClick={handleClickCheck}
                     />
                   </td>
+                  {/* ToDoテキスト */}
                   <td>
                     <span className={styles.text} name={index}>
                       {todoText}
                     </span>
                   </td>
+                  {/* 削除ボタン */}
                   <td>
                     <button
                       onClick={handleClickDelete}

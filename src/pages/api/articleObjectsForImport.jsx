@@ -1,3 +1,8 @@
+/**
+ * 記事データのサンプル配列
+ * 記事のインポート用に使用されるダミーデータ
+ * 各記事はid、title、description、bodyTextのプロパティを持つ
+ */
 const articleObjects = [
   {
     id: 1,

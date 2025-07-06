@@ -1,11 +1,16 @@
 // ★ package.json に "type": "module" を設定しておくと import/export が使えます
 import { MongoClient, ServerApiVersion } from "mongodb";
 
-
+/**
+ * MongoDBからコメント一覧を取得するAPI
+ * GETリクエストでコメントデータを返す
+ */
 export default async function testAPI(req, res) {
+  // 環境変数からMongoDB接続URLを取得
   const uri = process.env.MONGODB_URL;
   if (!uri) throw new Error("環境変数 MONGODB_URL が設定されていません");
 
+  // MongoDBクライアントの設定
   const client = new MongoClient(uri, {
     serverApi: {
       version: ServerApiVersion.v1,
@@ -14,7 +19,10 @@ export default async function testAPI(req, res) {
     },
   });
 
-  /** MongoDB に 1 度だけ接続し、再利用する */
+  /**
+   * MongoDB に 1 度だけ接続し、再利用する
+   * 既に接続済みの場合は既存の接続を返す
+   */
   async function connect() {
     if (!client.topology?.isConnected()) {
       await client.connect();
@@ -22,7 +30,10 @@ export default async function testAPI(req, res) {
     return client;
   }
 
-  /** 接続確認用 (ping) */
+  /**
+   * 接続確認用 (ping)
+   * MongoDBへの接続が正常かどうかを確認
+   */
   async function checkConnection() {
     try {
       const client = await connect();
@@ -36,7 +47,10 @@ export default async function testAPI(req, res) {
     }
   }
 
-  /** コメント一覧を取得 */
+  /**
+   * コメント一覧を取得
+   * Commentsコレクションから全てのコメントを取得
+   */
   async function getComments() {
     try {
       const client = await connect();
@@ -48,7 +62,11 @@ export default async function testAPI(req, res) {
     }
   }
 
-  /** コメントを追加 */
+  /**
+   * コメントを追加
+   * Commentsコレクションに新しいコメントを挿入
+   * @param {Object} comment - 追加するコメントオブジェクト
+   */
   async function addComment(comment) {
     try {
       const client = await connect();
@@ -61,11 +79,15 @@ export default async function testAPI(req, res) {
     }
   }
 
-  /** 明示的に切断したいとき用 */
+  /**
+   * 明示的に切断したいとき用
+   * MongoDBクライアントの接続を閉じる
+   */
   async function close() {
     await client.close();
   }
 
+  // コメント一覧を取得してレスポンスを返す
   const commets = await getComments();
   // console.log(commets);
 

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import styles from "./page.module.css";
 
+// ナビゲーション用のページ設定
 const PAGES = [
   {
     title: "Home",
@@ -23,10 +24,15 @@ const PAGES = [
   },
 ];
 
+/**
+ * ナビゲーションヘッドラインコンポーネント
+ * サイト内の主要ページへのリンクを表示
+ */
 export function Headline() {
   return (
     <div className={styles.center}>
       <div className={styles.headline}>
+        {/* 各ページへのナビゲーションリンクを生成 */}
         {PAGES.map((page) => {
           return (
             <span className={styles.anchor} key={page.title}>
