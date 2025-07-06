@@ -1,5 +1,5 @@
 "use client";
-
+import styles from "./page.module.css";
 import { useEffect, useState } from "react";
 
 type CommentData = {
@@ -79,38 +79,37 @@ export default function MongoDB() {
   };
 
   return (
-    <div className="container mt-5">
-      <h1 className="text-center mb-4">MongoDB テスト</h1>
-      <div
-        className="d-flex flex-column gap-2 mb-4 align-items-center justify-content-center mx-auto"
-        style={{ maxWidth: "300px" }}
-      >
+    <div className={styles.container}>
+      <h1 className={styles.title}>MongoDB テスト</h1>
+      <div className={styles.formWrapper}>
         <input
           type="text"
           placeholder="名前"
+          name="name"
           value={userName}
-          className="form-control w-75"
+          className={styles.inputName}
           onChange={userNameInputHandler}
         />
         <input
           type="text"
           placeholder="コメント"
+          name="comment"
           value={userComment}
-          className="form-control w-100"
+          className={styles.inputComment}
           onChange={userCommentInputHandler}
         />
         <input
           type="submit"
           disabled={isSubmitting}
           value={isSubmitting ? "投稿中..." : "投稿"}
-          className="btn btn-primary w-50"
+          className={styles.submitButton}
           onClick={clickPostHandler}
         />
       </div>
 
-      <div className="table-responsive">
-        <table className="table table-bordered text-center">
-          <thead className="table-light">
+      <div className={styles.tableWrapper}>
+        <table className={styles.table}>
+          <thead>
             <tr>
               <th>ユーザー名</th>
               <th>コメント</th>
